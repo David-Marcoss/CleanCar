@@ -65,8 +65,12 @@ WSGI_APPLICATION = 'CleanCar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'some-postgres',   # Pode ser 'localhost' ou o endereço IP do seu servidor PostgreSQL
+        'PORT': '5432',        # Porta padrão do PostgreSQL
     }
 }
 

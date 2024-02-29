@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  postgresdb:
+    container_name: some-postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: root
+    volumes:
+      - postgressVolume:/var/lib/postgres
+      - posrgressConfg:/etc/postgress
+  
+  docker-python:
+    container_name: docker-python
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    depends_on: 
+      - postgresdb
+
+volumes:
+  postgressVolume:
+  posrgressConfg:
+
+  
