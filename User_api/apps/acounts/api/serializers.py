@@ -18,6 +18,16 @@ class Userserializer(serializers.ModelSerializer):
                 raise serializers.ValidationError('As senhas não são iguais')
 
         return data
+
+    def create(self, validated_data):
+        password = validated_data.pop('password', None)
+        User_obj = self.Meta.model(**validated_data)
+        User_obj.set_password(password)
+        User_obj.save()
+        
+        return User_obj
+    
+
     
     
     
